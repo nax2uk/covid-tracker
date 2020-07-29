@@ -5,6 +5,7 @@ import {
   Select,
   MenuItem
 } from '@material-ui/core';
+import InfoBox from './components/InfoBox/InfoBox';
 import './App.css';
 
 //
@@ -17,10 +18,8 @@ function App() {
       try {
         const data = await axios.get("https://disease.sh/v3/covid-19/countries");
         const arrCountries = data.data.map(item => ({
-
           name: item.country,
           value: item.countryInfo.iso2,
-
         }))
         setCountries(arrCountries);
       } catch (error) {
@@ -53,7 +52,9 @@ function App() {
         </FormControl>
       </div >
       <div className="app__stats">
-
+        <InfoBox title="Coronavirus Cases" total="1000" cases="1233" />
+        <InfoBox title="Recovered" total="500" cases="1233" />
+        <InfoBox title="Deaths" total="300" cases="1233" />
       </div>
     </div >
   );
