@@ -19,6 +19,7 @@ function App() {
   const [country, setCountry] = useState('worldwide');
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
+  const [casesType, setCasesType] = useState("cases");
 
   useEffect(() => {
     const getWorldwideData = async () => {
@@ -83,9 +84,18 @@ function App() {
           </FormControl>
         </div >
         <div className="app__stats">
-          <InfoBox title="Coronavirus Cases" total={countryInfo.cases} cases={countryInfo.todayCases} />
-          <InfoBox title="Recovered" total={countryInfo.recovered} cases={countryInfo.todayRecovered} />
-          <InfoBox title="Deaths" total={countryInfo.deaths} cases={countryInfo.todayDeaths} />
+          <InfoBox
+            title="Coronavirus Cases"
+            total={countryInfo.cases}
+            cases={countryInfo.todayCases} />
+          <InfoBox
+            title="Recovered"
+            total={countryInfo.recovered}
+            cases={countryInfo.todayRecovered} />
+          <InfoBox
+            title="Deaths"
+            total={countryInfo.deaths}
+            cases={countryInfo.todayDeaths} />
         </div>
         <Map />
       </div>
@@ -95,7 +105,7 @@ function App() {
           <h3>Live Cases by Country</h3>
           <TableData countries={tableData} />
           <h3>Worldwide New Cases</h3>
-          <LineGraph />
+          <LineGraph casesType={casesType} />
         </CardContent>
       </Card>
 

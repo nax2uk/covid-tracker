@@ -5,16 +5,19 @@ export const sortData = (data) => {
 
 export const ProcessChartData = (data, casesType = "cases") => {
     const chartData = [];
-    let lastDataPoint;
-    data[casesType].cases.forEach((date) => {
+    let lastDataPoint = 0;
+    for (let date in data[casesType]) {
+        //console.log('data[casesType][date] >>> ' + data[casesType][date]);
+
         if (lastDataPoint) {
             const newDataPoint = {
-                x: data,
+                x: date,
                 y: data[casesType][date] - lastDataPoint,
             }
             chartData.push(newDataPoint);
         }
         lastDataPoint = data[casesType][date];
-    })
+    }
+    console.log(chartData);
     return chartData;
 }
