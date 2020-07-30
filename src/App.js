@@ -10,6 +10,7 @@ import {
 import InfoBox from './components/InfoBox/InfoBox';
 import Map from './components/Map/Map';
 import TableData from './components/TableData/TableData';
+import LineGraph from './components/LineGraph/LineGraph';
 import { sortData } from './utils';
 import './App.css';
 

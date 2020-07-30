@@ -2,7 +2,7 @@ import React from 'react';
 import './TableData.css'
 
 const TableData = ({ countries }) => {
-    console.log(countries);
+
     return (
         <div className="table">
             {countries.map(({ country, cases }) => (
