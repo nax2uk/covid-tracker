@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Line } from "react-chartjs-2";
 import { ProcessChartData } from '../../utils';
-import lineGraphOptions from '../../options/lineGraphOptions';
+import lineGraphOptions from './lineGraphOptions';
 import axios from 'axios';
 
 const LineGraph = ({ casesType, ...props }) => {
@@ -10,7 +10,6 @@ const LineGraph = ({ casesType, ...props }) => {
     useEffect(() => {
         const fetchData = async () => {
             const response = await axios.get("https:disease.sh/v3/covid-19/historical/all?lastdays=120");
-            console.log(response.data);
             const chartData = ProcessChartData(response.data, casesType);
             setData(chartData);
         }
@@ -21,7 +20,6 @@ const LineGraph = ({ casesType, ...props }) => {
     return (
         <div>
             <h3>Line Graph</h3>
-            {console.log(data)}
             {data &&
                 <Line
                     options={lineGraphOptions}

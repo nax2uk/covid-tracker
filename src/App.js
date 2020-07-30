@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {
-  FormControl,
-  Select,
-  MenuItem,
-  Card,
-  CardContent
-} from '@material-ui/core';
+import { FormControl, Select, MenuItem, Card, CardContent } from '@material-ui/core';
 import InfoBox from './components/InfoBox/InfoBox';
 import Map from './components/Map/Map';
 import TableData from './components/TableData/TableData';
 import LineGraph from './components/LineGraph/LineGraph';
 import { sortData } from './utils';
+import "leaflet/dist/leaflet.css";
 import './App.css';
 
 function App() {
@@ -20,12 +15,15 @@ function App() {
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
   const [casesType, setCasesType] = useState("cases");
+  const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
+  const [mapZoom, setMapZoom] = useState(3);
+  const [mapCountries, setMapCountries] = useState([]);
 
   useEffect(() => {
     const getWorldwideData = async () => {
       try {
-        const data = await axios.get("https://disease.sh/v3/covid-19/all");
-        setCountryInfo(data.data);
+        const response = await axios.get("https://disease.sh/v3/covid-19/all");
+        setCountryInfo(response.data);
       } catch (error) {
         console.error(error);
       }
@@ -36,12 +34,13 @@ function App() {
   useEffect(() => {
     const getCountriesData = async () => {
       try {
-        const data = await axios.get("https://disease.sh/v3/covid-19/countries");
-        const arrCountries = data.data.map(item => ({
+        const response = await axios.get("https://disease.sh/v3/covid-19/countries");
+        const arrCountries = response.data.map(item => ({
           name: item.country,
           value: item.countryInfo.iso2,
         }))
-        setTableData(sortData(data.data))
+        setTableData(sortData(response.data));
+        setMapCountries(response.data)
         setCountries(arrCountries);
       } catch (error) {
         console.error(error);
@@ -53,18 +52,28 @@ function App() {
 
   const onCountryChange = async (event) => {
     const countryCode = event.target.value;
-
-
     const url = (countryCode === "worldwide")
       ? "https://disease.sh/v3/covid-19/all"
       : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
 
-    const data = await axios.get(url);
-    setCountry(countryCode);
-    setCountryInfo(data.data)
-    console.log(data.data.countryInfo)
+    try {
+      const response = await axios.get(url);
+      setCountry(countryCode);
+      setCountryInfo(response.data)
 
+      if (countryCode !== "worldwide") {
+        setMapCenter([response.data.countryInfo.lat, response.data.countryInfo.long]);
+        setMapZoom(4);
+      } else {
+        setMapCenter([34.80746, -40.4796]);
+        setMapZoom(3);
+      }
+
+    } catch (error) {
+      console.error(error);
+    }
   }
+
   return (
     <div className="app">
       <div className="app__left">
@@ -97,7 +106,7 @@ function App() {
             total={countryInfo.deaths}
             cases={countryInfo.todayDeaths} />
         </div>
-        <Map />
+        <Map countries={mapCountries} center={mapCenter} zoom={mapZoom} />
       </div>
 
       <Card className="app__right">
