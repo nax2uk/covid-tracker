@@ -3,6 +3,8 @@ import { Line } from "react-chartjs-2";
 import { ProcessChartData } from '../../utils';
 import lineGraphOptions from './lineGraphOptions';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { fetchLineGraphData } from '../../actions/';
 
 const LineGraph = ({ casesType, ...props }) => {
     const [data, setData] = useState([]);
@@ -17,6 +19,9 @@ const LineGraph = ({ casesType, ...props }) => {
 
     }, [casesType]);
 
+    useEffect(() => {
+        props.fetchLineGraphData();
+    })
     return (
         <div>
             <h3>Line Graph</h3>
@@ -37,4 +42,6 @@ const LineGraph = ({ casesType, ...props }) => {
     );
 };
 
-export default LineGraph;
+export default connect(null,
+    { fetchLineGraphData })
+    (LineGraph);

@@ -40,7 +40,7 @@ function App() {
           value: item.countryInfo.iso2,
         }))
         setTableData(sortData(response.data));
-        setMapCountries(response.data)
+        setMapCountries(response.data);
         setCountries(arrCountries);
       } catch (error) {
         console.error(error);
@@ -59,7 +59,7 @@ function App() {
     try {
       const response = await axios.get(url);
       setCountry(countryCode);
-      setCountryInfo(response.data)
+      setCountryInfo(response.data);
 
       if (countryCode !== "worldwide") {
         setMapCenter([response.data.countryInfo.lat, response.data.countryInfo.long]);
