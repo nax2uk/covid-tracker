@@ -1,10 +1,11 @@
 table {
     margin-top: 20px;
+    margin-bottom: 20px;
+    width:100%;
     overflow:scroll;
     height:400px;
-    color:#6a5d5d;
-    
-    
+    color:#6a5d5d; 
+      
 }
 
 table tr {
