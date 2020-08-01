@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Line } from "react-chartjs-2";
 import { ProcessChartData } from '../../utils';
-import lineGraphOptions from './lineGraphOptions';
+import lineGraphOptions from './lineGraph.options';
 import { connect } from 'react-redux';
 import { fetchLineGraphData } from '../../actions/';
 
