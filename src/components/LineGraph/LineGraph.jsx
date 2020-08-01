@@ -13,6 +13,7 @@ const LineGraph = ({ lineGraphData, fetchLineGraphData }) => {
 
     return (
         <div>
+            <h3>Worldwide New Cases</h3>
             <h3>Line Graph</h3>
             {lineGraphData &&
                 <Line

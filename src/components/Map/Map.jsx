@@ -1,11 +1,12 @@
 import React from 'react';
 import numeral from 'numeral';
+import { connect } from 'react-redux';
 import { Map as LeafletMap, TileLayer, Circle, Popup } from 'react-leaflet';
 import { calculateRadius } from '../../utils';
 import { casesTypeColors } from './map.options';
 import './Map.css';
 
-const showDataOnMap = (data, casesType = 'cases') => (
+const renderCircles = (data, casesType = 'cases') => (
     data.map((country, index) => (
         <Circle
             center={
@@ -35,18 +36,27 @@ const showDataOnMap = (data, casesType = 'cases') => (
     ))
 
 );
-const Map = ({ countries, casesType, center, zoom }) => {
+const Map = ({ countries, casesType, countryInfo }) => {
     return (
         <div className="map">
-            <LeafletMap center={center} zoom={zoom}>
+            <LeafletMap center={countryInfo.mapCenter} zoom={countryInfo.mapZoom}>
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution='&copy; <a href="http://osm.org/copyright">
                     OpenStreetMap</a> contributors' />
-                {showDataOnMap(countries, casesType)}
+
+                {renderCircles(countries.data, casesType)}
             </LeafletMap>
         </div>
     );
 };
 
-export default Map;
+const mapStateToProps = (state) => {
+
+    return {
+        countryInfo: state.countryInfo,
+        countries: state.countries,
+    };
+}
+
+export default connect(mapStateToProps)(Map);
