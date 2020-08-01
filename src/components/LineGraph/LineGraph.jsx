@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { Line } from "react-chartjs-2";
-import { ProcessChartData } from '../../utils';
+import { ProcessLineGraphData } from '../../utils';
 import lineGraphOptions from './lineGraph.options';
 import { connect } from 'react-redux';
 import { fetchLineGraphData } from '../../actions/';
 
-const LineGraph = ({ casesType, lineGraphData, fetchLineGraphData }) => {
+const LineGraph = ({ lineGraphData, fetchLineGraphData }) => {
 
     useEffect(() => {
         fetchLineGraphData();
@@ -22,7 +22,7 @@ const LineGraph = ({ casesType, lineGraphData, fetchLineGraphData }) => {
                             {
                                 backgroundColor: "rgba(204,16,52,0.5)",
                                 borderColor: "#CC1034",
-                                data: ProcessChartData(lineGraphData, casesType)
+                                data: lineGraphData,
                             }
                         ]
                     }}
@@ -31,10 +31,11 @@ const LineGraph = ({ casesType, lineGraphData, fetchLineGraphData }) => {
     );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
 
-    return { lineGraphData: state.lineGraphData }
+    return { lineGraphData: ProcessLineGraphData(state.lineGraphData, ownProps.casesType) }
 }
+
 export default connect(mapStateToProps,
     { fetchLineGraphData })
     (LineGraph);

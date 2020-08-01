@@ -7,5 +7,9 @@ export const fetchLineGraphData = () => async (dispatch) => {
         type: 'FETCH_LINEGRAPH_DATA',
         payload: response.data,
 
-    })
+    });
 };
+
+/*export const fetchAllCountries = () => async (dispatch){
+
+}*/

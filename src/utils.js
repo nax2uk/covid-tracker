@@ -4,7 +4,7 @@ export const sortData = (data) => {
     return sortedData.sort((a, b) => (a.cases > b.cases ? -1 : 1))
 }
 
-export const ProcessChartData = (data, casesType = "cases") => {
+export const ProcessLineGraphData = (data, casesType = "cases") => {
     const chartData = [];
     let lastDataPoint = 0;
     for (let date in data[casesType]) {

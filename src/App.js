@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { FormControl, Select, MenuItem, Card, CardContent } from '@material-ui/core';
+import { Card, CardContent } from '@material-ui/core';
 import InfoBox from './components/InfoBox/InfoBox';
 import Map from './components/Map/Map';
 import TableData from './components/TableData/TableData';
 import LineGraph from './components/LineGraph/LineGraph';
+import SelectCountry from './components/SelectCountry/SelectCountry';
 import { sortData } from './utils';
 import "leaflet/dist/leaflet.css";
 import './App.css';
@@ -79,7 +80,8 @@ function App() {
       <div className="app__left">
         <div className="app__header">
           <h1>COVID-19 TRACKER</h1>
-          <FormControl className="app__dropdown">
+          <SelectCountry country={country} countries={countries} onCountryChange={onCountryChange} />
+          {/*   <FormControl className="app__dropdown">
             <Select
               variant="outlined"
               value={country}
@@ -90,7 +92,7 @@ function App() {
                 <MenuItem key={index} value={value}>{name}</MenuItem>
               ))}
             </Select>
-          </FormControl>
+              </FormControl>*/}
         </div >
         <div className="app__stats">
           <InfoBox
