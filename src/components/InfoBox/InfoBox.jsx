@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent, Typography } from '@material-ui/core';
-import { prettyPrintState } from '../../utils';
+//import { prettyPrintState } from '../../utils';
 import './InfoBox.css';
 
 const InfoBox = ({ title, cases, total }) => {

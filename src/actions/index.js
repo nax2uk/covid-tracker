@@ -5,7 +5,7 @@ export const fetchLineGraphData = () => async (dispatch) => {
 
     dispatch({
         type: 'FETCH_LINEGRAPH_DATA',
-        payload: response,
+        payload: response.data,
 
     })
 };

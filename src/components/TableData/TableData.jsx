@@ -4,15 +4,20 @@ import './TableData.css'
 const TableData = ({ countries }) => {
 
     return (
-        <div className="table">
-            {countries.map(({ country, cases }) => (
-                <tr>
-                    <td>{country}</td>
-                    <td><strong>{cases}</strong></td>
-                </tr>
-            ))}
-
-        </div>
+        <table>
+            <thead><tr><th></th><th></th></tr></thead>
+            <tbody>
+                {
+                    countries.map(({ country, cases }, index) => (
+                        <tr key={index}>
+                            <td>{country}</td>
+                            <td><strong>{cases}</strong></td>
+                        </tr>
+                    ))
+                }
+            </tbody>
+            <tfoot><tr><th></th><th></th></tr></tfoot>
+        </table>
     );
 };
 

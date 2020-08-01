@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
+import lineGraphDataReducer from './lineGraphDataReducer';
 
 export default combineReducers({
-    replaceMe: () => 10
+    lineGraphData: lineGraphDataReducer,
 });

@@ -1,27 +1,12 @@
 import React from 'react';
+import numeral from 'numeral';
 import { Map as LeafletMap, TileLayer, Circle, Popup } from 'react-leaflet';
 import { calculateRadius } from '../../utils';
-import numeral from 'numeral';
+import { casesTypeColors } from './map.options';
 import './Map.css';
 
-const casesTypeColors = {
-    cases: {
-        hex: "#CC1034",
-        multiplier: 800,
-    },
-    recovered: {
-        hex: "#7dd71d",
-        multiplier: 1200,
-    },
-    deaths: {
-        hex: "#fb4443",
-        multiplier: 2000,
-    },
-
-};
-
 const showDataOnMap = (data, casesType = 'cases') => (
-    data.map(country => (
+    data.map((country, index) => (
         <Circle
             center={
                 [country.countryInfo.lat, country.countryInfo.long]
@@ -30,6 +15,7 @@ const showDataOnMap = (data, casesType = 'cases') => (
             color={casesTypeColors[casesType].hex}
             fillColor={casesTypeColors[casesType].hex}
             radius={calculateRadius(country[casesType])}
+            key={index}
         >
 
             <Popup>
