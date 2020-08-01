@@ -14,3 +14,22 @@
 .mapInfo {
     z-index:1000;
 }
+.popup__info img{
+    width: 100px;
+    border-radius: 5px;
+}
+.popup__info-countryname{
+    font-size: 20px;
+    font-weight: bold;
+    color:#555;
+}
+.popup__info-flag {
+    height: 80px;
+    width: 100%;
+    background-size:cover;
+    border-radius: 8px;
+}
+
+.popup__info{
+    width: 150px;
+}

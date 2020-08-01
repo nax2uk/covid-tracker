@@ -18,7 +18,6 @@ const renderCircles = (data, casesType = 'cases') => (
             radius={calculateRadius(country[casesType])}
             key={index}
         >
-
             <Popup>
                 <div className="popup">
                     <div
@@ -31,7 +30,6 @@ const renderCircles = (data, casesType = 'cases') => (
                     <div className="popup__info-deaths">Deaths: {numeral(country.deaths).format("0,0")}</div>
                 </div>
             </Popup>
-
         </Circle>
     ))
 
