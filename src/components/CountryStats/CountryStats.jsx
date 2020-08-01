@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import InfoBox from '../InfoBox/InfoBox';
+import InfoBox from './InfoBox/InfoBox';
 
 const CountryStats = ({ countryInfo }) => {
     const {

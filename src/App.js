@@ -7,8 +7,6 @@ import Map from './components/Map/Map';
 import Header from './components/Header/Header';
 import TableData from './components/TableData/TableData';
 import LineGraph from './components/LineGraph/LineGraph';
-
-import "leaflet/dist/leaflet.css";
 import './App.css';
 
 function App({

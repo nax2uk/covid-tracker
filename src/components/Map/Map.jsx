@@ -5,6 +5,7 @@ import { Map as LeafletMap, TileLayer, Circle, Popup } from 'react-leaflet';
 import { calculateRadius } from '../../utils';
 import { casesTypeColors } from './map.options';
 import './Map.css';
+import "leaflet/dist/leaflet.css";
 
 const renderCircles = (data, casesType = 'cases') => (
     data.map((country, index) => (

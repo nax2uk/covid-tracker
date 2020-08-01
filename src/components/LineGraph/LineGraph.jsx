@@ -12,23 +12,25 @@ const LineGraph = ({ lineGraphData, fetchLineGraphData }) => {
     }, [fetchLineGraphData]);
 
     return (
-        <div>
+        <>
             <h3>Worldwide New Cases</h3>
-            <h3>Line Graph</h3>
-            {lineGraphData &&
-                <Line
-                    options={lineGraphOptions}
-                    data={{
-                        datasets: [
-                            {
-                                backgroundColor: "rgba(204,16,52,0.5)",
-                                borderColor: "#CC1034",
-                                data: lineGraphData,
-                            }
-                        ]
-                    }}
-                />}
-        </div>
+            <div>
+                <h3>Line Graph</h3>
+                {lineGraphData &&
+                    <Line
+                        options={lineGraphOptions}
+                        data={{
+                            datasets: [
+                                {
+                                    backgroundColor: "rgba(204,16,52,0.5)",
+                                    borderColor: "#CC1034",
+                                    data: lineGraphData,
+                                }
+                            ]
+                        }}
+                    />}
+            </div>
+        </>
     );
 };
 

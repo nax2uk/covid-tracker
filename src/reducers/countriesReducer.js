@@ -1,10 +1,12 @@
 import { sortData } from '../utils';
 
-export default (state = {
-    nameAndValue: [],
-    data: [],
+export default (
+    state = {
+        nameAndValue: [],
+        data: [],
+    },
 
-}, action) => {
+    action) => {
     switch (action.type) {
         case 'FETCH_COUNTRIES':
             return {

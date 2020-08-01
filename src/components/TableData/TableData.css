@@ -1,10 +1,12 @@
-table {
+.table-data {
     margin-top: 20px;
-    margin-bottom: 20px;
     width:100%;
     overflow:scroll;
     height:400px;
     color:#6a5d5d; 
+}
+table {
+    margin-bottom: 20px;
       
 }
 

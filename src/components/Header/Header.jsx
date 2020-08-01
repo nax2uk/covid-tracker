@@ -1,5 +1,5 @@
 import React from 'react';
-import SelectCountry from '../SelectCountry/SelectCountry';
+import SelectCountry from './SelectCountry/SelectCountry';
 
 const Header = ({ onCountryChange, countries, country, ...props }) => {
     return (

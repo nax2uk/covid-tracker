@@ -1,9 +1,10 @@
-export default (state = {
-    country: "worldwide",
-    data: {},
-    mapZoom: 3,
-    mapCenter: [34.80746, -40.4796]
-},
+export default (
+    state = {
+        country: "worldwide",
+        data: {},
+        mapZoom: 3,
+        mapCenter: [34.80746, -40.4796]
+    },
     action) => {
 
     switch (action.type) {
