@@ -40,3 +40,11 @@ export const fetchLineGraphData = () => async (dispatch) => {
 
     });
 };
+
+export const setCasesType = (caseType) => {
+    return {
+        type: 'SET_CASESTYPE',
+        payload: caseType,
+    };
+}
+

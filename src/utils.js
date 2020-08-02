@@ -27,6 +27,5 @@ export const calculateRadius = (totalCase) => {
 
 }
 
-export const prettyPrintStat = (stat) => {
-    return stat ? `+${numeral(stat).format("0.0a")}` : null
-}
+export const prettyPrintStat = (stat) =>
+    stat ? `${numeral(stat).format("0.0a")}` : "+0";

@@ -13,10 +13,7 @@ function App({
   fetchWorldwideInfo,
   fetchCountryInfo,
   fetchCountries,
-  countryInfo,
-  countries }) {
-
-  const [casesType, setCasesType] = useState("cases");
+}) {
 
   useEffect(() => {
     fetchWorldwideInfo();
@@ -35,16 +32,15 @@ function App({
 
   return (
     <div className="app">
-      {console.log(casesType)}
       <div className="app__left">
         <Header onCountryChange={onCountryChange} />
-        <CountryStats setCasesType={setCasesType} />
-        <Map casesType={casesType} />
+        <CountryStats />
+        <Map />
       </div>
 
       <Card className="app__right">
         <CardContent>
-          <LineGraph casesType={casesType} />
+          <LineGraph />
           <TableData />
         </CardContent>
       </Card>
@@ -53,16 +49,8 @@ function App({
   );
 }
 
-const mapStateToProps = (state) => {
-
-  return {
-    countryInfo: state.countryInfo,
-    countries: state.countries,
-  };
-}
-
 export default connect(
-  mapStateToProps,
+  null,
   {
     fetchWorldwideInfo,
     fetchCountryInfo,

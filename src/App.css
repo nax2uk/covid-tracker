@@ -22,9 +22,18 @@ body {
 .app__left{
   flex:0.9;
 }
+.app__right {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
 
 @media (max-width: 999px) {
   .app {
     flex-direction:column;
+  }
+  .app__right {
+    margin-top: 20px;
+    text-align:center;
   }
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import InfoBox from './InfoBox/InfoBox';
+import { prettyPrintStat } from '../../utils';
+import { setCasesType } from '../../actions';
 
 const CountryStats = ({ countryInfo, setCasesType }) => {
     const {
@@ -16,18 +18,18 @@ const CountryStats = ({ countryInfo, setCasesType }) => {
             <InfoBox
                 onClick={(e) => setCasesType("cases")}
                 title="Coronavirus Cases"
-                total={cases}
-                cases={todayCases} />
+                total={prettyPrintStat(cases)}
+                cases={prettyPrintStat(todayCases)} />
             <InfoBox
                 onClick={(e) => setCasesType("recovered")}
                 title="Recovered"
-                total={recovered}
-                cases={todayRecovered} />
+                total={prettyPrintStat(recovered)}
+                cases={prettyPrintStat(todayRecovered)} />
             <InfoBox
                 onClick={(e) => setCasesType("deaths")}
                 title="Deaths"
-                total={deaths}
-                cases={todayDeaths} />
+                total={prettyPrintStat(deaths)}
+                cases={prettyPrintStat(todayDeaths)} />
         </div>
     );
 };
@@ -37,4 +39,4 @@ const mapStateToProps = (state) => {
 
 }
 
-export default connect(mapStateToProps)(CountryStats);
+export default connect(mapStateToProps, { setCasesType })(CountryStats);

@@ -55,6 +55,7 @@ const mapStateToProps = (state) => {
     return {
         countryInfo: state.countryInfo,
         countries: state.countries,
+        casesType: state.casesType,
     };
 }
 

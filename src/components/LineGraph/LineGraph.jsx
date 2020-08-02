@@ -34,9 +34,11 @@ const LineGraph = ({ lineGraphData, fetchLineGraphData }) => {
     );
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
 
-    return { lineGraphData: ProcessLineGraphData(state.lineGraphData, ownProps.casesType) }
+    return {
+        lineGraphData: ProcessLineGraphData(state.lineGraphData, state.casesType)
+    }
 }
 
 export default connect(mapStateToProps,

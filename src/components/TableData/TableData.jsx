@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { prettyPrintStat } from '../../utils';
 import './TableData.css'
 
 const TableData = ({ countries }) => {
@@ -15,7 +16,7 @@ const TableData = ({ countries }) => {
                             countries.data.map(({ country, cases }, index) => (
                                 <tr key={index}>
                                     <td>{country}</td>
-                                    <td><strong>{cases}</strong></td>
+                                    <td><strong>{prettyPrintStat(cases)}</strong></td>
                                 </tr>
                             ))
                         }
