@@ -5,7 +5,7 @@ import './TableData.css'
 const TableData = ({ countries }) => {
 
     return (
-        <div classname="table__container">
+        <div className="table__container">
             <h3>Live Cases by Country</h3>
             <div className="table__data">
                 <table>

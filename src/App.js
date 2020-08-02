@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { fetchWorldwideInfo, fetchCountryInfo, fetchCountries } from './actions';
 import { Card, CardContent } from '@material-ui/core';
 import CountryStats from './components/CountryStats/CountryStats';
@@ -21,7 +21,7 @@ function App({
   useEffect(() => {
     fetchWorldwideInfo();
     fetchCountries();
-  }, [])
+  }, [fetchCountries, fetchWorldwideInfo])
 
 
   const onCountryChange = (e) => {
@@ -35,10 +35,11 @@ function App({
 
   return (
     <div className="app">
+      {console.log(casesType)}
       <div className="app__left">
-        <Header countries={countries.nameAndValue} country={countryInfo.country} onCountryChange={onCountryChange} />
-        <CountryStats />
-        <Map countries={countries.data} center={countryInfo.mapCenter} zoom={countryInfo.mapZoom} casesType={casesType} />
+        <Header onCountryChange={onCountryChange} />
+        <CountryStats setCasesType={setCasesType} />
+        <Map casesType={casesType} />
       </div>
 
       <Card className="app__right">
