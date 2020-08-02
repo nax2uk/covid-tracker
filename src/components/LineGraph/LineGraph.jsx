@@ -4,6 +4,7 @@ import { ProcessLineGraphData } from '../../utils';
 import lineGraphOptions from './lineGraph.options';
 import { connect } from 'react-redux';
 import { fetchLineGraphData } from '../../actions/';
+import './LineGraph.css'
 
 const LineGraph = ({ lineGraphData, fetchLineGraphData }) => {
 
@@ -12,10 +13,9 @@ const LineGraph = ({ lineGraphData, fetchLineGraphData }) => {
     }, [fetchLineGraphData]);
 
     return (
-        <>
+        <div className="linegraph">
             <h3>Worldwide New Cases</h3>
-            <div>
-                <h3>Line Graph</h3>
+            <div className="linegraph__container">
                 {lineGraphData &&
                     <Line
                         options={lineGraphOptions}
@@ -30,7 +30,7 @@ const LineGraph = ({ lineGraphData, fetchLineGraphData }) => {
                         }}
                     />}
             </div>
-        </>
+        </div >
     );
 };
 

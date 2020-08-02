@@ -1,13 +1,14 @@
-.table-data {
+.table__container {
+    padding:20px 0;
+}
+.table__data {
     margin-top: 20px;
     overflow:scroll;
     height:400px;
     color:#6a5d5d; 
 }
 table {
-    margin-bottom: 20px;
-    width:100%;
-      
+    width:100%;    
 }
 
 table tr {

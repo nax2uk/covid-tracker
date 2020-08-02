@@ -5,10 +5,9 @@ import './TableData.css'
 const TableData = ({ countries }) => {
 
     return (
-        <>
+        <div classname="table__container">
             <h3>Live Cases by Country</h3>
-            <div className="table-data">
-
+            <div className="table__data">
                 <table>
                     <thead><tr><th></th><th></th></tr></thead>
                     <tbody>
@@ -24,7 +23,7 @@ const TableData = ({ countries }) => {
                     <tfoot><tr><th></th><th></th></tr></tfoot>
                 </table>
             </div>
-        </>
+        </div>
     );
 };
 

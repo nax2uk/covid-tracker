@@ -35,7 +35,6 @@ function App({
 
   return (
     <div className="app">
-
       <div className="app__left">
         <Header countries={countries.nameAndValue} country={countryInfo.country} onCountryChange={onCountryChange} />
         <CountryStats />
@@ -44,8 +43,8 @@ function App({
 
       <Card className="app__right">
         <CardContent>
-          <TableData />
           <LineGraph casesType={casesType} />
+          <TableData />
         </CardContent>
       </Card>
 
