@@ -5,7 +5,6 @@ import './InfoBox.css';
 const InfoBox = ({ title, cases, total, onClick, active, isRed }) => {
     return (
         <Card
-            className="infoBox"
             onClick={onClick}
             className={`infoBox ${active && 'infoBox--selected'} ${isRed && 'infoBox--red'}`}
         >
