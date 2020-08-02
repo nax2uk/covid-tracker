@@ -13,7 +13,7 @@ export default (
                 ...state,
                 country: action.payload.countryCode,
                 data: action.payload.data,
-                mapZoom: 4,
+                mapZoom: 5,
                 mapCenter: [
                     action.payload.data.countryInfo.lat,
                     action.payload.data.countryInfo.long

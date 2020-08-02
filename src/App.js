@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchWorldwideInfo, fetchCountryInfo, fetchCountries } from './actions';
 import { Card, CardContent } from '@material-ui/core';

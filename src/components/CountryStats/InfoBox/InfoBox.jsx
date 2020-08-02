@@ -1,16 +1,19 @@
 import React from 'react';
 import { Card, CardContent, Typography } from '@material-ui/core';
-//import { prettyPrintState } from '../../utils';
 import './InfoBox.css';
 
-const InfoBox = ({ title, cases, total, onClick }) => {
+const InfoBox = ({ title, cases, total, onClick, active, isRed }) => {
     return (
-        <Card className="infoBox" onClick={onClick}>
+        <Card
+            className="infoBox"
+            onClick={onClick}
+            className={`infoBox ${active && 'infoBox--selected'} ${isRed && 'infoBox--red'}`}
+        >
             <CardContent>
                 <Typography className="infoBox_title" color="textSecondary">
                     {title}
                 </Typography>
-                <h2 className="infoBox__cases">{cases} Today</h2>
+                <h2 className={`infoBox__cases ${!isRed && "infoBox__cases--green"}`}>{cases} Today</h2>
                 <Typography className="infoBox__total" color="textSecondary">
                     {total} Total
                     </Typography>
@@ -19,4 +22,4 @@ const InfoBox = ({ title, cases, total, onClick }) => {
     );
 };
 
-export default InfoBox;
+export default InfoBox

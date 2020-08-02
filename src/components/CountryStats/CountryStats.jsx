@@ -4,7 +4,7 @@ import InfoBox from './InfoBox/InfoBox';
 import { prettyPrintStat } from '../../utils';
 import { setCasesType } from '../../actions';
 
-const CountryStats = ({ countryInfo, setCasesType }) => {
+const CountryStats = ({ countryInfo, setCasesType, casesType }) => {
     const {
         cases,
         todayCases,
@@ -16,16 +16,21 @@ const CountryStats = ({ countryInfo, setCasesType }) => {
     return (
         <div className="app__stats">
             <InfoBox
+                isRed
+                active={casesType === "cases"}
                 onClick={(e) => setCasesType("cases")}
                 title="Coronavirus Cases"
                 total={prettyPrintStat(cases)}
                 cases={prettyPrintStat(todayCases)} />
             <InfoBox
+                active={casesType === "recovered"}
                 onClick={(e) => setCasesType("recovered")}
                 title="Recovered"
                 total={prettyPrintStat(recovered)}
                 cases={prettyPrintStat(todayRecovered)} />
             <InfoBox
+                isRed
+                active={casesType === "deaths"}
                 onClick={(e) => setCasesType("deaths")}
                 title="Deaths"
                 total={prettyPrintStat(deaths)}
@@ -35,7 +40,10 @@ const CountryStats = ({ countryInfo, setCasesType }) => {
 };
 
 const mapStateToProps = (state) => {
-    return { countryInfo: state.countryInfo }
+    return {
+        countryInfo: state.countryInfo,
+        casesType: state.casesType
+    }
 
 }
 
