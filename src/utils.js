@@ -28,7 +28,7 @@ export const calculateRadius = (totalCase) => {
 }
 
 export const prettyPrintStat = (stat) =>
-    stat ? `${numeral(stat).format("0.0a")}` : "+0";
+    stat ? `${numeral(stat).format("0.0a")}` : "0";
 
 export const capitalise = (str) =>
     `${str[0].toUpperCase()}${str.substring(1)}`;
