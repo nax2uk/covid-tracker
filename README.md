@@ -45,8 +45,8 @@
 * [Redux-Thunk](https://www.npmjs.com/package/redux-thunk) - React middleware that allows return a function instead of an action
 * [React-Redux](https://react-redux.js.org/) - Official React bindings for Redux
 * [Axios](https://www.npmjs.com/package/axios) - Promise based HTTP client for the browser and node.js
-* [React ChartJs 1](http://jerairrest.github.io/react-chartjs-2/) - React wrapper for Chartjs
-* [React Leaflet](https://react-leaflet.js.org/) - A React component for LeafletJs
+* [React-ChartJs2](http://jerairrest.github.io/react-chartjs-2/) - React wrapper for Chartjs
+* [React-Leaflet](https://react-leaflet.js.org/) - A React component for LeafletJs
 * [Material UI](https://material-ui.com/) - A popular React UI framework
 * [Netlify](https://www.netlify.com/) - The fastest way to build the fastest sites.
 
