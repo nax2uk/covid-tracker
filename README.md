@@ -1,6 +1,6 @@
 # Covid-19 Tracker
-This app allows a user to view the total number of covid-19 cases, recoveries and deaths world wide and also for individual countries. 
-It includes and interactive map, linegraph, and table which displays various relevant data.
+* This app allows a user to view the total number of covid-19 cases, recoveries and deaths worldwide and also for individual countries. 
+* It includes and interactive map, linegraph, and table which displays various relevant data.
 
 
 ## Link
